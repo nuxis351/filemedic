@@ -3,7 +3,8 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
+  <link href="css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="css/fileMedic.css" rel="stylesheet" />
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">

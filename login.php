@@ -4,8 +4,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>FileMedic Login</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="css/fileMedic.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <title>FileMedic Login</title>
 </head>
 <body class="bg-dark">
   <div class="container">
