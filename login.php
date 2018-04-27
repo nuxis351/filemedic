@@ -8,6 +8,9 @@
   <link href="css/fileMedic.css" rel="stylesheet" />
   <meta charset="UTF-8">
   <title>FileMedic Login</title>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="#">FileMedic</a>
+  </nav>
 </head>
 <body class="bg-dark">
   <div class="container">

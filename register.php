@@ -18,6 +18,11 @@
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <div>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <a class="navbar-brand" href="#">FileMedic</a>
+    </nav>
+  </div>
 </head>
 
 <body class="bg-dark">
