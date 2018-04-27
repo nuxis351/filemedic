@@ -26,7 +26,7 @@
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> User Management
             </a>
             <div class="dropdown-menu" aria-labelledby="userManagmentDropdown">
-              <a class="dropdown-item" href="#">Settings</a>
+              <a class="dropdown-item" href="settings.html">Settings</a>
               <a class="dropdown-item" href="#">File Managment</a>
             </div>
           </li>
