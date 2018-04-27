@@ -7,20 +7,20 @@
   </head>
   <div>
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-      <a class="navbar-brand" href="index.php">FileMedic</a>
+      <a class="navbar-brand" href=index.php>FileMedic</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavMarkup" aria-controls="navbarNavMarkup"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavMarkup">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown active">
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="userManagmentDropdown"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> User Management
             </a>
-            <div class="dropdown-menu" aria-labelledby="userManagmentDropdown">
-              <a class="dropdown-item active" href="#">Settings</a>
-              <a class="dropdown-item" href="fileManagement.html">File Managment</a>
+            <div class="dropdown-menu active" aria-labelledby="userManagmentDropdown">
+              <a class="dropdown-item" href="settings.html">Settings</a>
+              <a class="dropdown-item active" href="#">File Managment</a>
             </div>
           </li>
           <li class="nav-item">
@@ -33,26 +33,33 @@
   <body>
     <div class="container">
       <div class="row justify-content-center">
-        <h1>Settings Page</h1>
+        <h1>File Managment</h1>
       </div>
       <div class="row justify-content-center">
-        <div id="userID" class="card">
+        <div class="card" style="width:24rem;">
           <div class="card-body">
-            <form class="form-inline mb-2">
-              <div class="form-group mr-2">
-                <label for="changeEmail" class="sr-only">Email</label>
-                <input type="email" class="form-control" id="changeEmail" placeholder="Email" />
+            <div class="row">
+              <div class="col">
+                <h6>DiskImageID:</h6>
               </div>
-              <button type="submit" class="btn btn-primary">Change Email</button>
-            </form>
-            <form class="form-inline mb-2">
-              <div class="form-group mr-2">
-                <label for="changePassword" class="sr-only">Password</label>
-                <input type="password" class="form-control" id="changePassword" placeholder="Password" />
+              <div class="col">
+                <p style="display:inline-block;">
+                  ImageName
+                </p>
               </div>
-              <button type="submit" class="btn btn-primary">Change Password</button>
-            </form>
-            <button type="button" class="btn btn-sm btn-block btn-danger">Delete Account</button>
+              <div class="col">
+                <label id="imageID-size">Size</label>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col col-sm-2 offset-sm-2">
+                <button type="button" class="btn btn-sm btn-success">Recover</button>
+              </div>
+              <div class="col col-sm-2 offset-sm-2">
+                <button type="button" class="btn btn-sm btn-info">Download</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

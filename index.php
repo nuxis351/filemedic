@@ -27,7 +27,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="userManagmentDropdown">
               <a class="dropdown-item" href="settings.html">Settings</a>
-              <a class="dropdown-item" href="#">File Managment</a>
+              <a class="dropdown-item" href="fileManagement.html">File Managment</a>
             </div>
           </li>
           <li class="nav-item">
