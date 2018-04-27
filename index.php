@@ -62,14 +62,14 @@
       </div>
       <br />
       <div class="row justify-content-center">
-        <form>
+        <form action="php/upload.php" method="post" enctype="multipart/form-data">
           <div class="input-group">
             <div class="row">
                 <div class="col-xs offset-sm-3" style="font-size:1.5em">
                   <span class="fa fa-upload"></span>
                 </div>
                 <div class="col">
-                  <input type="file" class="form-control-file" id="uploadFileButton"/>
+                  <input name="fileUpload" type="file" class="form-control-file" id="fileUpload"/>
                 </div>
             </div>
           </div>
@@ -77,7 +77,7 @@
           <div class="form-group">
             <div class="row">
               <div class="col offset-sm-4">
-                <button type="submit" class="btn btn-primary" id="submitFileButton">Submit</button>
+                <button name="submit" type="submit" class="btn btn-primary" id="submitFileButton">Submit</button>
               </div>
             </div>
           </div>
