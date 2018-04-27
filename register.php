@@ -27,18 +27,6 @@
       <div class="card-body">
         <form action="php/registration.php" method="post">
           <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-6">
-                <label for="exampleInputName">First name</label>
-                <input class="form-control" name="FirstName" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
-              </div>
-              <div class="col-md-6">
-                <label for="exampleInputLastName">Last name</label>
-                <input class="form-control" name="LastName" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Enter last name">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input class="form-control" name="Email" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
           </div>
