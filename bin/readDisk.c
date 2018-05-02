@@ -22,13 +22,8 @@ int main(int argc, char ** argv){
     char buffer[3];
     int BPS; //bytes per sector
     int SPC; //sectors per cluster
-    int RSC = 1; //fat16 uses only 1 RSC
+    int RSC; //reserved sector count
     int FAT; //number of sectors per FAT
-
-    /* char buffer[3326]; */
-    /* fseek(disk, 139776, SEEK_SET); */
-    /* fread(buffer, 1, 3325, disk); */
-    /* fwrite(buffer, 1, 3325, file); */
 
     //Get the VBR
     fread(vbr, 1, 512, disk);
@@ -41,6 +36,12 @@ int main(int argc, char ** argv){
     buffer[1] = vbr[12];
     buffer[2] = '\0';
     BPS = convertLEtoBE2(buffer);
+
+    //Get the RSC
+    buffer[0] = vbr[14];
+    buffer[1] = vbr[15];
+    buffer[2] = '\0';
+    RSC = convertLEtoBE2(buffer);
 
     //Get the FAT
     buffer[0] = vbr[22];
@@ -61,7 +62,10 @@ int main(int argc, char ** argv){
         rdPosition = ftell(disk);
         if (rdEntry[0] == 0x00){  //this indicates root entry read is empty
             moreRdEntries = 0; //so there is no more rd entries. this is assuming root directory entries are contiguous
-        } else{
+        } else if (rdEntry[0] != 0xe5){
+            printf("%s\n", "Not a deleted file!");
+        }
+        else{
             rdEntries++;
             rdEntry[0] = 0x5f; //since the first byte of RD entry is "deleted", use 5f to indicate restored file
             unsigned char fileName[9]; //bytes 0 - 7 of RD entry

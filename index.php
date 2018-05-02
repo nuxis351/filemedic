@@ -11,6 +11,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/fileMedic.css" rel="stylesheet" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="js/plupload.full.min.js"></script>
   </head>
   <div>
     <nav class="navbar navbar-expand-md navbar-light bg-light">
@@ -61,27 +62,35 @@
         </div>
       </div>
       <br />
-      <div class="row justify-content-center">
-        <form action="php/upload.php" method="post" enctype="multipart/form-data">
-          <div class="input-group">
-            <div class="row">
-                <div class="col-xs offset-sm-3" style="font-size:1.5em">
-                  <span class="fa fa-upload"></span>
-                </div>
-                <div class="col">
-                  <input name="fileUpload" type="file" class="form-control-file" id="fileUpload"/>
-                </div>
-            </div>
-          </div>
-          <hr />
-          <div class="form-group">
-            <div class="row">
-              <div class="col offset-sm-4">
-                <button name="submit" type="submit" class="btn btn-primary" id="submitFileButton">Submit</button>
-              </div>
-            </div>
-          </div>
-        </form>
+      <div class="row justify-content-center" id="uploader">
+        <ul id="filelist"></ul>
+        <br />
+        <div id="uploadContainer">
+            <a id="browse" href="javascript:;">[Browse...]</a>
+            <a id="start-upload" href="javascript:;">[Start Upload]</a>
+        </div>
+        <br />
+        <pre id="console"></pre>
+        <!-- <form action="php/upload.php" method="post" enctype="multipart/form&#45;data"> -->
+        <!--   <div class="input&#45;group"> -->
+        <!--     <div class="row"> -->
+        <!--         <div class="col&#45;xs offset&#45;sm&#45;3" style="font&#45;size:1.5em"> -->
+        <!--           <span class="fa fa&#45;upload"></span> -->
+        <!--         </div> -->
+        <!--         <div class="col"> -->
+        <!--           <input name="fileUpload" type="file" class="form&#45;control&#45;file" id="fileUpload"/> -->
+        <!--         </div> -->
+        <!--     </div> -->
+        <!--   </div> -->
+        <!--   <hr /> -->
+        <!--   <div class="form&#45;group"> -->
+        <!--     <div class="row"> -->
+        <!--       <div class="col offset&#45;sm&#45;4"> -->
+        <!--         <button name="submit" type="submit" class="btn btn&#45;primary" id="submitFileButton">Submit</button> -->
+        <!--       </div> -->
+        <!--     </div> -->
+        <!--   </div> -->
+        <!-- </form> -->
       </div>
     </div>
     <hr />
@@ -120,12 +129,42 @@
           </div>
         </div>
       </div>
-    </div>"
+    </div>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        var uploader = new plupload.Uploader({
+            browse_button : 'browse',
+            url : 'upload.php',
+            chunk_size : '2mb',
+            unique_names : true,
+
+            init : {
+                PostInit: function(){
+                    document.getElementById('filelist').innerHTML = '';
+
+                    document.getElementById('start-upload').onclick = function(){
+                        uploader.start();
+                        return false;
+                    };
+                },
+
+                FilesAdded: function(up, files){
+                    plupload.each(files, function(file){
+                        document.getElementById('filelist').innerHTML += '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></div>';
+                    });
+                },
+
+                UploadProgress: function(up, file){
+                    document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
+                },
+            }            
+        });
+        uploader.init();
+    </script>
   </body>
 </html>
