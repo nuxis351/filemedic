@@ -60,14 +60,14 @@
         <div class="col-xs">
           <h2><span class="fa fa-arrow-down" aria-hidden="true"></span></h2>
         </div>
-      </div>
-      <br />
       <div class="row justify-content-center" id="uploader">
         <ul id="filelist"></ul>
         <br />
         <div id="uploadContainer">
-            <a id="browse" href="javascript:;">[Browse...]</a>
-            <a id="start-upload" href="javascript:;">[Start Upload]</a>
+            <a id="browse" class="btn btn-primary" href="javascript:;">
+              <span class="fa fa-folder-open"></span>Browse</a>
+            <a id="start-upload" class="btn btn-success" href="javascript:;">
+              <span class="fa fa-upload"></span>Start Upload</a>
         </div>
         <br />
         <pre id="console"></pre>
@@ -162,7 +162,7 @@
                 UploadProgress: function(up, file){
                     document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
                 },
-            }            
+            }
         });
         uploader.init();
     </script>
