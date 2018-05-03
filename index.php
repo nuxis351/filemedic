@@ -56,10 +56,6 @@
         </div>
       </div>
       <br />
-      <div class="row justify-content-center">
-        <div class="col-xs">
-          <h2><span class="fa fa-arrow-down" aria-hidden="true"></span></h2>
-        </div>
       <div class="row justify-content-center" id="uploader">
         <ul id="filelist"></ul>
         <br />
