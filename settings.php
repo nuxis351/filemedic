@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -38,21 +41,23 @@
       <div class="row justify-content-center">
         <div id="userID" class="card">
           <div class="card-body">
-            <form class="form-inline mb-2">
+            <form class="form-inline mb-2" action="php/settings-email.php" method="GET">
               <div class="form-group mr-2">
                 <label for="changeEmail" class="sr-only">Email</label>
-                <input type="email" class="form-control" id="changeEmail" placeholder="Email" />
+                <input type="email" class="form-control" name="Email" id="changeEmail" placeholder="<?php echo $_SESSION["Email"]  ?>" />
               </div>
               <button type="submit" class="btn btn-primary">Change Email</button>
             </form>
-            <form class="form-inline mb-2">
+            <form class="form-inline mb-2" action="php/settings-password.php" method="POST">
               <div class="form-group mr-2">
                 <label for="changePassword" class="sr-only">Password</label>
-                <input type="password" class="form-control" id="changePassword" placeholder="Password" />
+                <input type="password" class="form-control" name="Password" id="changePassword" placeholder="Password" />
               </div>
               <button type="submit" class="btn btn-primary">Change Password</button>
             </form>
-            <button type="button" class="btn btn-sm btn-block btn-danger">Delete Account</button>
+            <form action="php/settings-delete.php" method="get">
+              <button type="submit" class="btn btn-sm btn-block btn-danger">Delete Account</button>
+            </form>
           </div>
         </div>
       </div>
