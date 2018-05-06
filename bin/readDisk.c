@@ -17,6 +17,9 @@ int main(int argc, char ** argv){
         exit(0);
     }
 
+    //images location
+    char * location = "../images/";
+
     //Variables
     char vbr[513]; //sector 0. 512 bytes + null-terminating character = 513 bytes
     char buffer[3];
@@ -63,7 +66,7 @@ int main(int argc, char ** argv){
         if (rdEntry[0] == 0x00){  //this indicates root entry read is empty
             moreRdEntries = 0; //so there is no more rd entries. this is assuming root directory entries are contiguous
         } else if (rdEntry[0] != 0xe5){
-            printf("%s\n", "Not a deleted file!");
+            /* printf("%s\n", "Not a deleted file!"); */
         }
         else{
             rdEntries++;
@@ -81,6 +84,12 @@ int main(int argc, char ** argv){
                 fileName[i] = rdEntry[i];
             }
             fileName[8] = '\0';
+
+            for (i = 0; i < 8; i++){
+                if (fileName[i] == 0x20){
+                    fileName[i] = '\0';
+                }
+            }
 
             for (i = 8; i < 11; i++){
                 fileExt[i - 8] = rdEntry[i];
@@ -114,7 +123,13 @@ int main(int argc, char ** argv){
             fread(fileBuffer, 1, fileSize, disk);
 
             FILE * file;
-            file = fopen(fullFileName, "w+");
+            char finalLocation[100];
+            strcpy(finalLocation, location);
+            strcat(finalLocation, fullFileName);
+
+            printf("%s\n", fullFileName);
+
+            file = fopen(finalLocation, "w+");
             if (file == NULL){
                 printf("%s\n", "Error opening the file to write to!");
                 exit(0);
@@ -125,7 +140,7 @@ int main(int argc, char ** argv){
                 printf("%s\n", "Wrote incorrect number of bytes!");
                 exit(0);
             } else{
-                printf("%s%d\n", "Written bytes: ", fileSize);
+                /* printf("%s%d\n", "Written bytes: ", fileSize); */
             }
         }
         fseek(disk, rdPosition, SEEK_SET);
