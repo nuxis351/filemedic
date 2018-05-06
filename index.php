@@ -137,7 +137,7 @@
             browse_button : 'browse',
             url : 'upload.php',
             chunk_size : '2mb',
-            unique_names : true,
+            unique_names : false,
 
             init : {
                 PostInit: function(){
@@ -157,6 +157,10 @@
 
                 UploadProgress: function(up, file){
                     document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
+                },
+
+                FileUploaded: function(up, file, result){
+                    
                 },
             }
         });
