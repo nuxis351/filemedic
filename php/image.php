@@ -15,9 +15,15 @@
 
     for ($i = 0; $i < count($output); $i++){
         $image = $output[$i];
-        echo "<div>";
-        echo "<img src=\"./images/$image\" >";    
-        echo "</div>";
+        if ($i == 0){ //for the first one, you need active class for carousel
+            echo "<div class=\"carousel-item active\">";
+            echo "<img class=\"d-block img-fluid\" src=\"./images/$image\" />";    
+            echo "</div>";
+        } else{
+            echo "<div class=\"carousel-item\">";
+            echo "<img class=\"d-block img-fluid\" src=\"./images/$image\" />";    
+            echo "</div>";
+        }
     }
 
 ?>

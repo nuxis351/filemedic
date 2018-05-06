@@ -67,26 +67,6 @@
         </div>
         <br />
         <pre id="console"></pre>
-        <!-- <form action="php/upload.php" method="post" enctype="multipart/form&#45;data"> -->
-        <!--   <div class="input&#45;group"> -->
-        <!--     <div class="row"> -->
-        <!--         <div class="col&#45;xs offset&#45;sm&#45;3" style="font&#45;size:1.5em"> -->
-        <!--           <span class="fa fa&#45;upload"></span> -->
-        <!--         </div> -->
-        <!--         <div class="col"> -->
-        <!--           <input name="fileUpload" type="file" class="form&#45;control&#45;file" id="fileUpload"/> -->
-        <!--         </div> -->
-        <!--     </div> -->
-        <!--   </div> -->
-        <!--   <hr /> -->
-        <!--   <div class="form&#45;group"> -->
-        <!--     <div class="row"> -->
-        <!--       <div class="col offset&#45;sm&#45;4"> -->
-        <!--         <button name="submit" type="submit" class="btn btn&#45;primary" id="submitFileButton">Submit</button> -->
-        <!--       </div> -->
-        <!--     </div> -->
-        <!--   </div> -->
-        <!-- </form> -->
       </div>
     </div>
     <hr />
@@ -102,16 +82,16 @@
       <br />
       <div class="row justify-content-center">
         <div id="carouselControls" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-              <img class="d-block img-fluid" src="thumb-jpg.png" />
-            </div>
-            <div class="carousel-item">
-              <img class="d-block img-fluid" src="no_thumb.jpg" />
-            </div>
-            <div class="carousel-item">
-              <img class="d-block img-fluid" src="thumb.svg" />
-            </div>
+          <div id="recoveredImages" class="carousel-inner" role="listbox">
+            <!-- <div class="carousel&#45;item active"> -->
+            <!--   <img class="d&#45;block img&#45;fluid" src="thumb&#45;jpg.png" /> -->
+            <!-- </div> -->
+            <!-- <div class="carousel&#45;item"> -->
+            <!--   <img class="d&#45;block img&#45;fluid" src="no_thumb.jpg" /> -->
+            <!-- </div> -->
+            <!-- <div class="carousel&#45;item"> -->
+            <!--   <img class="d&#45;block img&#45;fluid" src="thumb.svg" /> -->
+            <!-- </div> -->
           </div>
           <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -164,7 +144,20 @@
                 },
 
                 FileUploaded: function(up, file, result){
+                    var formData = {
+                        'Diskname' : file.name
+                    };
 
+                    $.ajax({
+                        url: "php/image.php",
+                        async: true,
+                        data: formData,
+                        type: "GET",
+                        dataType: "html"
+                    }).always(function(data){
+                        console.log(data);
+                        $("#recoveredImages").html(data);
+                    });
                 },
             }
         });
