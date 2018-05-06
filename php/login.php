@@ -14,7 +14,7 @@
     }
 
     //make the query
-    $query = "SELECT * from MedicUsers where Status=1 or Status=2 and Email='$Email' and Password='$md5Password'";
+    $query = "SELECT * from MedicUsers where Email='$Email' and Password='$md5Password'";
     $result = mysqli_query($conn, $query);
 
     if ($result){ //query successful
