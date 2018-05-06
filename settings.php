@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -38,10 +41,10 @@
       <div class="row justify-content-center">
         <div id="userID" class="card">
           <div class="card-body">
-            <form class="form-inline mb-2">
+            <form class="form-inline mb-2" action="php/settings-email.php">
               <div class="form-group mr-2">
                 <label for="changeEmail" class="sr-only">Email</label>
-                <input type="email" class="form-control" id="changeEmail" placeholder="Email" />
+                <input type="email" class="form-control" id="changeEmail" placeholder="<?php echo $_SESSION["Email"]  ?>" />
               </div>
               <button type="submit" class="btn btn-primary">Change Email</button>
             </form>

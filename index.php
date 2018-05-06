@@ -27,7 +27,7 @@
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> User Management
             </a>
             <div class="dropdown-menu" aria-labelledby="userManagmentDropdown">
-              <a class="dropdown-item" href="settings.html">Settings</a>
+              <a class="dropdown-item" href="settings.php">Settings</a>
               <a class="dropdown-item" href="fileManagement.html">File Managment</a>
             </div>
           </li>
@@ -160,7 +160,7 @@
                 },
 
                 FileUploaded: function(up, file, result){
-                    
+
                 },
             }
         });
