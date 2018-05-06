@@ -4,6 +4,7 @@
 
     //get the variables from index.php
     $Email = $_POST["Email"];
+    $_SESSION["Email"] = $Email;
     $Password = $_POST["Password"];
     $md5Password = md5($Password);
 
