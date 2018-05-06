@@ -101,31 +101,35 @@
       </div>
       <br />
       <div class="row justify-content-center">
-          <div class="card">
-            <ul class="list-group" id="recoveredFileList">
-              <li class="list-group-item">
-                <h6>thumb-jpg.png</h6>
-                <img src="thumb-jpg.png" class="img-thumbnail recoveredImg" />
-                <button type="button" class="btn btn-success btn-sm btn-block">Download</button>
-              </li>
-              <li class="list-group-item">
-                <h6>no_thumb.jpg</h6>
-                <img src="no_thumb.jpg" class="img-thumbnail recoveredImg" />
-                <button type="button" class="btn btn-success btn-sm btn-block">Download</button>
-              </li>
-              <li class="list-group-item">
-                <h6>thumb.svg</h6>
-                <img src="thumb.svg" class="img-thumbnail recoveredImg" />
-                <button type="button" class="btn btn-success btn-sm btn-block">Download</button>
-              </li>
+        <div id="carouselControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <img class="d-block img-fluid" src="thumb-jpg.png" />
             </div>
-            <div class="col-sm-1 offset-sm-2">
-              <button type="button" class="btn btn-info">Advanced details</button>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="no_thumb.jpg" />
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="thumb.svg" />
             </div>
           </div>
+          <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
       </div>
+      <br />
+      <div class="row justify-content-center">
+        <button type="button" class="btn btn-info">Advanced details</button>
+      </div>
     </div>
+  </div>
+</div>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -160,7 +164,7 @@
                 },
 
                 FileUploaded: function(up, file, result){
-                    
+
                 },
             }
         });
