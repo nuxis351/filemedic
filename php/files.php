@@ -25,6 +25,9 @@
                           <div class=\"col\">
                             <label>Date</label>
                           </div>
+                          <div class=\"col\">
+                            <label>Download</label>
+                          </div>
                         </div>";
 
         $query = "SELECT * from MedicTable ORDER BY UID;";
@@ -34,7 +37,7 @@
             while ($row = mysqli_fetch_assoc($result)){
                 $string2 = $string2 . "<div class=\"row\"><div class=\"col\">"
                                     . $row["UID"] . "</div><div class=\"col-6\">" . $row["DiskName"] . "</div><div class=\"col\">"
-                                    . $row["Date"] . "</div></div>";
+                                    . $row["Date"] . "</div><div class=\"col\">" . "<a href=\"./uploads/{$row["DiskName"]}\" download>Download</a>" . "</div></div>";
             } 
         } else {
             print "Query failed.";
@@ -54,7 +57,7 @@
             while ($row = mysqli_fetch_assoc($result)){
                 $string = $string . "<div class=\"row\"><div class=\"col\">" 
                                   . $UID . "</div><div class=\"col-6\">" . $row["DiskName"] . "</div><div class=\"col\">"
-                                  . $row["Date"] . "</div></div>";
+                                  . $row["Date"] . "</div><div class=\"col\">" . "<a href=\"./uploads/{$row["DiskName"]}\" download>Download</a>" . "</div></div>";
             }
         }
         echo "<div class=\"row justify-content-center\">
@@ -71,6 +74,9 @@
                           </div>
                           <div class=\"col\">
                             <label>Date</label>
+                          </div>
+                          <div class=\"col\">
+                            <label>Download</label>
                           </div>
                         </div>";
         echo $string;

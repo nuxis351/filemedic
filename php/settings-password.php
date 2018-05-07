@@ -4,6 +4,7 @@
 
     $Password = md5($_POST["Password"]);
     $Email = $_POST["Email"];
+    print "$Email";
 
     //make the database connection
     $conn = mysqli_connect(SERVER, USER, PASSWORD, DATABASE);
@@ -14,7 +15,8 @@
     $query = "UPDATE MedicUsers SET Password='$Password' WHERE Email='$Email'";
     $result = mysqli_query($conn, $query);
     if ($Email == $_SESSION["Email"]){
-        header("Location logout.php");
+        $_SESSION["RegState"] = -4;
+        header("Location: logout.php");
         die();
     } else{
         header("Location: ../settings.php");

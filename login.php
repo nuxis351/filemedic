@@ -26,12 +26,12 @@
             <label for="exampleInputPassword1">Password</label>
             <input class="form-control" name="Password" id="exampleInputPassword1" type="password" placeholder="Password">
           </div>
-          <div class="form-group">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input name="rmBtn" class="form-check-input" type="checkbox" value="rememberMe"> Remember Password</label>
-            </div>
-          </div>
+          <!-- <div class="form&#45;group"> -->
+          <!--   <div class="form&#45;check"> -->
+          <!--     <label class="form&#45;check&#45;label"> -->
+          <!--       <input name="rmBtn" class="form&#45;check&#45;input" type="checkbox" value="rememberMe"> Remember Password</label> -->
+          <!--   </div> -->
+          <!-- </div> -->
           <!-- <a class="btn btn&#45;primary btn&#45;block" href="index.php">Login</a> -->
           <input type="submit" class="btn btn-primary btn-block" value="Login">
         </form>
