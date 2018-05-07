@@ -67,7 +67,7 @@ int main(int argc, char ** argv){
             moreRdEntries = 0; //so there is no more rd entries. this is assuming root directory entries are contiguous
         } else if (rdEntry[0] != 0xe5){
             /* printf("%s\n", "Not a deleted file!"); */
-        }
+        } 
         else{
             rdEntries++;
             rdEntry[0] = 0x5f; //since the first byte of RD entry is "deleted", use 5f to indicate restored file

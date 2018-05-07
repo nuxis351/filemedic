@@ -35,33 +35,7 @@
       <div class="row justify-content-center">
         <h1>File Managment</h1>
       </div>
-      <div class="row justify-content-center">
-        <div class="card" style="width:24rem;">
-          <div class="card-body">
-            <div class="row">
-              <div class="col">
-                <h6>DiskImageID:</h6>
-              </div>
-              <div class="col">
-                <p style="display:inline-block;">
-                  ImageName
-                </p>
-              </div>
-              <div class="col">
-                <label id="imageID-size">Size</label>
-              </div>
-            </div>
-            <hr />
-            <div class="row">
-              <div class="col col-sm-2 offset-sm-2">
-                <button type="button" class="btn btn-sm btn-success">Recover</button>
-              </div>
-              <div class="col col-sm-2 offset-sm-2">
-                <button type="button" class="btn btn-sm btn-info">Download</button>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div id="fileContainer">
       </div>
     </div>
 
@@ -70,5 +44,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $.ajax({
+                url: "php/files.php",
+                async: true,
+                dataType: "html",
+                type: "GET"
+            }).always(function(data){
+                $("#fileContainer").html(data);
+            });
+        });
+    </script>
   </body>
 </html>

@@ -4,13 +4,14 @@
 
     $name = $_GET["Diskname"];
     $UID = $_SESSION["UID"];
+    $rightnow = date("Y-m-d h:i:s");
 
     $conn = mysqli_connect(SERVER, USER, PASSWORD, DATABASE);
     if (!$conn){
         die("Connection Failure".mysqli_connect_error());
     }
 
-    $query = "INSERT into MedicTable (UID, DiskName) values ('$UID', '$name');";
+    $query = "INSERT into MedicTable (UID, DiskName, Date) values ('$UID', '$name', '$rightnow');";
     $result = mysqli_query($conn, $query);
 
     $filepath = "../uploads/" . $name;
