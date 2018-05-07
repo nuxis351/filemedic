@@ -10,7 +10,8 @@
         die("Connection Failure".mysqli_connect_error());
     }
 
-    $query = "DELETE FROM MedicUsers WHERE Email='$Email'";
+    // $query = "DELETE FROM MedicUsers WHERE Email='$Email'";
+    $query = "UPDATE MedicUsers SET Status=-1 WHERE Email='$Email'";
 
     $result = mysqli_query($conn, $query);
     header("Location: logout.php");
