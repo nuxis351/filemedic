@@ -2,8 +2,8 @@
     session_start();
     require_once("config.php");
 
-    $Password = md5($_POST["Password"]]);
-    $Email = $_SESSION["Email"];
+    $Password = md5($_POST["Password"]);
+    $Email = $_POST["Email"];
 
     //make the database connection
     $conn = mysqli_connect(SERVER, USER, PASSWORD, DATABASE);
@@ -13,6 +13,11 @@
 
     $query = "UPDATE MedicUsers SET Password='$Password' WHERE Email='$Email'";
     $result = mysqli_query($conn, $query);
-    header("Location: ../settings.php");
-    die();
+    if ($Email == $_SESSION["Email"]){
+        header("Location logout.php");
+        die();
+    } else{
+        header("Location: ../settings.php");
+        die();
+    }
 ?>
