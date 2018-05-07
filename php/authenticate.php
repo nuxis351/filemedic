@@ -16,7 +16,7 @@
     }
     
     //Make the query
-    $query = "SELECT * from MedicUsers where Email='$Email' and Acode='$Acode'";
+    $query = "SELECT * from MedicUsers where Email='$Email' and Acode='$Acode' and Status=0";
 
     //Check if the query went okay
     $result = mysqli_query($conn, $query);
@@ -25,7 +25,7 @@
         if ($rows == 1){ //if it is unique
             $Adatetime = date("Y-m-d h:i:s");
             $Acode2 = rand();
-            $query2 = "UPDATE MedicUsers set Status = 1, Acode='$Acode2', Adatetime='$Adatetime' where Email='$Email';";
+            $query2 = "UPDATE MedicUsers set Status = 1, Acode='$Acode2', Adatetime='$Adatetime' where Email='$Email' and Acode='$Acode';";
             $result2 = mysqli_query($conn, $query2);
 
             //if query fails

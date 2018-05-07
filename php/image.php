@@ -3,6 +3,16 @@
     require_once('config.php');
 
     $name = $_GET["Diskname"];
+    $UID = $_SESSION["UID"];
+
+    $conn = mysqli_connect(SERVER, USER, PASSWORD, DATABASE);
+    if (!$conn){
+        die("Connection Failure".mysqli_connect_error());
+    }
+
+    $query = "INSERT into MedicTable (UID, DiskName) values ('$UID', '$name');";
+    $result = mysqli_query($conn, $query);
+
     $filepath = "../uploads/" . $name;
     exec("rm -f ../images/*"); //remove old images
     exec("../bin/readDisk $filepath", $output);
