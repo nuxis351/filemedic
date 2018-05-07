@@ -40,6 +40,9 @@
       </div>
       <div id="settingsContainer">
       </div>
+        <div class="row justify-content-center">
+          <button id="addUser" type="button" class="btn btn-primary btn-lg">Add User</button>
+        </div>
     </div>
 
 
@@ -49,6 +52,16 @@
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
+            $status = <?php echo $_SESSION["Status"] ?>;
+            if ($status != 2){
+                $("#addUser").hide();
+            } 
+            $("#addUser").click(function(event){
+                event.preventDefault();
+                $.get("user.html", function(data){
+                    $("#settingsContainer").append(data);
+                });
+            });
             $.ajax({
                 url: "php/settings.php",
                 async: true,

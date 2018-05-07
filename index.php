@@ -104,9 +104,6 @@
         </div>
       </div>
       <br />
-      <div class="row justify-content-center">
-        <button type="button" class="btn btn-info">Advanced details</button>
-      </div>
     </div>
   </div>
 </div>
